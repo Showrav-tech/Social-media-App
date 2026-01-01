@@ -18,22 +18,38 @@ const App = () => {
   return (
     <>
       <Toaster position="top-center" />
-      
+
       <Routes>
+        {/* Public Route */}
         <Route path="/" element={!user ? <Login /> : <Layout />}>
+          {/* Default feed */}
           <Route index element={<Feed />} />
+
+          {/* Messages */}
           <Route path="messages" element={<Messages />} />
           <Route path="messages/:userId" element={<ChatBox />} />
+
+          {/* Connections */}
           <Route path="connections" element={<Connection />} />
+
+          {/* Discover */}
           <Route path="discover" element={<Discover />} />
+
+          {/* Profile */}
           <Route path="profile" element={<Profile />} />
-          <Route path="profile/:profileId" element={<Messages />} />
+          <Route path="profile/:profileId" element={<Profile />} />
+
+          {/* Create Post */}
           <Route path="create-post" element={<CreatePost />} />
         </Route>
+
+        {/* Optional: catch all route */}
+        {/* <Route path="*" element={<NotFound />} /> */}
       </Routes>
     </>
   );
 };
 
 export default App;
+
 
